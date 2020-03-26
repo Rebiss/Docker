@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  db:
+    build: ./Maria
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rooik
+    volumes:
+      - ./Database:/var/lib/mysql
+
+  adminer:
+    build: ./Adminer
+    restart: always
+    ports:
+      - 7788:8080
